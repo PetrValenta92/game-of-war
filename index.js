@@ -8,12 +8,16 @@ function getDeck() {
         });
 }
 
+function renderImages(cards) {
+    cards.map(card => {
+        document.getElementById("card-images").innerHTML += `<img src="${card.image}" alt="Image of card">`
+    });
+}
+
 function drawCards() {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(respo => respo.json())
-        .then(data => {
-            console.log(data.cards);
-        });
+        .then(data => renderImages(data.cards));
 }
 
 document.getElementById('new-deck').addEventListener('click', getDeck);
