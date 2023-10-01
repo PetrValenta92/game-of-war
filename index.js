@@ -9,9 +9,11 @@ function getDeck() {
 }
 
 function renderImages(cards) {
-    document.getElementById("card-images").innerHTML = `
-        <img class="card" src="${cards[0].image}" alt="Image of card">
-        <img class="card" src="${cards[1].image}" alt="Image of card">`
+    for (let i = 0; i < cards.length; i++) {
+        document.getElementById("cards-images").children[i].innerHTML = `
+            <img class="card" src="${cards[i].image}" alt="Image of card">
+        `
+    }
 }
 
 function drawCards() {
