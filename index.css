@@ -1,7 +1,8 @@
 :root {
-  --cl-body-bg: 109, 33%, 6%;
+  --cl-body-bg: 209, 96%, 56%;
   --cl-button-bg: 39, 93%, 63%;
   --cl-button-bg-hover: 326, 99%, 71%;
+  --cl-card-placeholder: 0, 0%, 8%;
 }
 
 /* RESET */
@@ -30,7 +31,7 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   background-image: url("./images/poker-table.jpg");
-  /* ! Add bg color */
+  background-color: hsl(var(--cl-body-bg));
   background-size: cover;
   background-repeat: no-repeat;
   flex-direction: column;
@@ -113,5 +114,19 @@ button:focus-visible {
 @media (width > 42rem) {
   .card {
     max-width: 14.125rem;
+  }
+}
+
+.card-placeholder {
+  width: 12.5rem;
+  height: calc(12.5rem * 7 / 5);
+  border: 2px solid hsl(var(--cl-card-placeholder));
+  border-radius: 0.625rem;
+}
+
+@media (width > 42rem) {
+  .card-placeholder {
+    width: 14.125rem;
+    height: calc(14.125rem * 7 / 5);
   }
 }
