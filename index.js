@@ -9,9 +9,9 @@ function getDeck() {
 }
 
 function renderImages(cards) {
-    cards.map(card => {
-        document.getElementById("card-images").innerHTML += `<img src="${card.image}" alt="Image of card">`
-    });
+    document.getElementById("card-images").innerHTML = `
+        <img class="card" src="${cards[0].image}" alt="Image of card">
+        <img class="card" src="${cards[1].image}" alt="Image of card">`
 }
 
 function drawCards() {
