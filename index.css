@@ -28,18 +28,13 @@ p {
 body {
   font-family: "Press Start 2P", cursive;
   line-height: 1.5;
-  height: 100vh;
-  background-image: linear-gradient(
-      hsl(var(--cl-body-bg)),
-      hsl(var(--cl-body-bg))
-    ),
-    url("./images/poker-table.jpg");
-  background-blend-mode: saturation;
-  /* ! Add color */
+  min-height: 100vh;
+  background-image: url("./images/poker-table.jpg");
+  /* ! Add bg color */
   background-size: cover;
   background-repeat: no-repeat;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 /* Make images easier to work with */
@@ -73,34 +68,43 @@ button:focus-visible {
 }
 
 .new-deck-btn {
-  width: 100%;
+  align-self: flex-start;
 }
 
 .draw-cards-btn {
-  width: 50%;
+  width: 100%;
 }
 
 /* ---------------- LAYOUT -------------------- */
 
 .container {
   width: 100%;
-  margin: 0 auto;
   max-width: 60rem;
+  min-height: 100vh;
+  margin: 0 auto;
   flex-direction: column;
-  align-items: center;
-  gap: 3vh;
-
-  /* ? debug */
-  border: 1px solid red;
+  justify-content: space-between;
 }
 
 .cards {
-  flex-direction: inherit;
+  flex-direction: column;
+  align-items: center;
   gap: 3vh;
 }
 
 @media (width > 42rem) {
   .cards {
     flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.card {
+  max-width: 12.5rem;
+}
+
+@media (width > 42rem) {
+  .card {
+    max-width: 14.125rem;
   }
 }
