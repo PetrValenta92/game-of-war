@@ -16,15 +16,40 @@ function renderImages(cards) {
     }
 }
 
+function biggerCard(card1, card2) {
+    
+    const cardValues = ["2", "3", "4", "5", "6", "7", "8", "9", 
+    "10", "JACK", "QUEEN", "KING", "ACE"]
+    
+    cardValues.indexOf(card1.value)
+    cardValues.indexOf(card2.value)
+    
+    if(cardValues.indexOf(card1.value) > cardValues.indexOf(card2.value)) {
+        return "Computer wins!";
+    } else if(cardValues.indexOf(card1.value) < cardValues.indexOf(card2.value)) {
+        return "You win!"
+    } else {
+        return "War!"
+    }
+}
+
 function drawCards() {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(respo => respo.json())
-        .then(data => renderImages(data.cards));
+        .then(data => {
+            renderImages(data.cards);
+            document.getElementById('result').textContent = biggerCard(data.cards[0], data.cards[1]);
+        });
 }
 
 document.getElementById('new-deck').addEventListener('click', getDeck);
 
 document.getElementById('draw-cards').addEventListener('click', drawCards);
+
+
+
+
+
 
 // -------------- CALLBACK FUNCTIONS --------------
 
