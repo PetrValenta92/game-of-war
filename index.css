@@ -3,6 +3,7 @@
   --cl-button-bg: 39, 93%, 63%;
   --cl-button-bg-hover: 326, 99%, 71%;
   --cl-card-slot: 0, 0%, 8%;
+  --cl-result: 185, 23%, 91%;
 }
 
 /* RESET */
@@ -27,6 +28,7 @@ p {
 
 /* Set up body */
 body {
+  color: hsl(var(--cl-result));
   font-family: "Press Start 2P", cursive;
   line-height: 1.5;
   min-height: 100vh;
@@ -51,6 +53,22 @@ img {
 }
 
 /* ----------------- TYPOGRAPHY ------------------- */
+
+h2 {
+  font-size: 1.75rem;
+} 
+
+@media (width > 42rem) {
+  h2 {
+    font-size: 2.125rem;
+  } 
+}
+
+@media (width > 60rem) {
+  h2 {
+    font-size: 2.5rem;
+  } 
+}
 
 /* ----------------- BUTTONS ------------------- */
 
@@ -92,6 +110,10 @@ button:focus-visible {
   margin: 0 auto;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.result {
+  text-align: center;
 }
 
 .cards {
