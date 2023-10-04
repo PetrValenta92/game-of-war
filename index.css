@@ -136,10 +136,6 @@ button:focus-visible {
   background-color: hsl(var(--cl-button-bg-hover));
 }
 
-.new-deck-btn {
-  align-self: flex-start;
-}
-
 .draw-cards-btn {
   width: 100%;
 }
@@ -156,6 +152,7 @@ button:focus-visible {
 }
 
 .header {
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
 }
