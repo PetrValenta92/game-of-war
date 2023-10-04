@@ -1,4 +1,10 @@
 let deckId;
+const drawBtn = document.getElementById('draw-cards');
+
+function enableBtn() {
+    drawBtn.classList.remove('disabled');
+    drawBtn.disabled = false;
+}
 
 function getDeck() {
     fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
@@ -6,6 +12,7 @@ function getDeck() {
         .then(data => {
             deckId = data.deck_id;
             document.getElementById('remaining-cards').textContent = `Remaining cards: ${data.remaining}`;
+            enableBtn();
         });
 }
 
@@ -46,7 +53,7 @@ function drawCards() {
 
 document.getElementById('new-deck').addEventListener('click', getDeck);
 
-document.getElementById('draw-cards').addEventListener('click', drawCards);
+drawBtn.addEventListener('click', drawCards);
 
 
 
