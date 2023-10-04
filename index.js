@@ -1,9 +1,15 @@
 let deckId;
 const drawBtn = document.getElementById('draw-cards');
+const cardsCount = document.getElementById('remaining-cards');
 
 function enableBtn() {
     drawBtn.classList.remove('disabled');
     drawBtn.disabled = false;
+}
+
+function disableBtn() {
+    drawBtn.classList.add('disabled');
+    drawBtn.disabled = true;
 }
 
 function getDeck() {
@@ -11,7 +17,7 @@ function getDeck() {
         .then(respo => respo.json())
         .then(data => {
             deckId = data.deck_id;
-            document.getElementById('remaining-cards').textContent = `Remaining cards: ${data.remaining}`;
+            cardsCount.textContent = `Remaining cards: ${data.remaining}`;
             enableBtn();
         });
 }
@@ -47,17 +53,17 @@ function drawCards() {
         .then(data => {
             renderImages(data.cards);
             document.getElementById('result').textContent = getResult(data.cards[0], data.cards[1]);
-            document.getElementById('remaining-cards').textContent = `Remaining cards: ${data.remaining}`;
+            cardsCount.textContent = `Remaining cards: ${data.remaining}`;
+            if (data.remaining <= 0) {  
+                disableBtn();
+            }
+            
         });
 }
 
 document.getElementById('new-deck').addEventListener('click', getDeck);
 
 drawBtn.addEventListener('click', drawCards);
-
-
-
-
 
 
 // -------------- CALLBACK FUNCTIONS --------------
