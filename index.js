@@ -5,6 +5,7 @@ function getDeck() {
         .then(respo => respo.json())
         .then(data => {
             deckId = data.deck_id;
+            document.getElementById('remaining-cards').textContent = `Remaining cards: ${data.remaining}`;
         });
 }
 
@@ -16,7 +17,7 @@ function renderImages(cards) {
     }
 }
 
-function biggerCard(card1, card2) {
+function getResult(card1, card2) {
     
     const cardValues = ["2", "3", "4", "5", "6", "7", "8", "9", 
     "10", "JACK", "QUEEN", "KING", "ACE"]
@@ -38,7 +39,8 @@ function drawCards() {
         .then(respo => respo.json())
         .then(data => {
             renderImages(data.cards);
-            document.getElementById('result').textContent = biggerCard(data.cards[0], data.cards[1]);
+            document.getElementById('result').textContent = getResult(data.cards[0], data.cards[1]);
+            document.getElementById('remaining-cards').textContent = `Remaining cards: ${data.remaining}`;
         });
 }
 
