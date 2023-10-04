@@ -153,6 +153,7 @@ button:focus-visible {
   margin: 0 auto;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
 }
 
 .header {
